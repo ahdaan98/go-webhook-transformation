@@ -20,7 +20,6 @@ You can access the live version of this application at:
 2. [Installation](#installation)
 3. [Usage](#usage)
 4. [Endpoints](#endpoints)
-5. [Input/Output Examples](#inputoutput-examples)
 6. [Accessing the Service via cURL](#accessing-the-service-via-curl)
 
 ## Prerequisites
@@ -129,8 +128,8 @@ You can access the live version of this application at:
     }
     ```
 
-## Input/Output Examples
 
+## Accessing the Service via cURL
 ### Sample Input
 
 You can use the following `curl` command to test the API endpoint:
