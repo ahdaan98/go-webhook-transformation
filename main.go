@@ -11,13 +11,14 @@ import (
 )
 
 const (
-	port              = ":8080"
-	webhookURL        = "https://webhook.site/0376d9ec-e76d-4aa7-9a94-ea7f32dab4ef"
-	contentTypeJSON   = "application/json"
-	maxEventChannel   = 100
+	port = ":8080"
+
+	contentTypeJSON = "application/json"
+	maxEventChannel = 100
 )
 
 type InputEvent struct {
+	WebhookURL      string            `json:"webhook"`
 	Event           string            `json:"ev"`
 	EventType       string            `json:"et"`
 	AppId           string            `json:"id"`
@@ -192,7 +193,7 @@ func processEvent(input InputEvent) {
 
 	sendChannel <- outputJSON
 
-	resp, err := http.Post(webhookURL, contentTypeJSON, bytes.NewBuffer(outputJSON))
+	resp, err := http.Post(input.WebhookURL, contentTypeJSON, bytes.NewBuffer(outputJSON))
 	if err != nil {
 		log.Printf("Error sending to webhook: %v", err)
 		return
